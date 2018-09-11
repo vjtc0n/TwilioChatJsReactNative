@@ -6,7 +6,6 @@ const TokenProvider = require('./js/token-provider');
 const bodyParser = require('body-parser');
 const ngrok = require('ngrok');
 
-
 const app = express();
 
 app.set('json spaces', 2);
@@ -45,13 +44,10 @@ app.listen(3002, function() {
     addr: 3002
   };
   if (config.ngrokSubdomain) {
-    ngrokOptions.subdomain = config.ngrokSubdomain
+    ngrokOptions.subdomain = config.ngrokSubdomain;
   }
 
-  ngrok.connect(ngrokOptions).then(url=> {
+  ngrok.connect(ngrokOptions).then(url => {
     console.log('ngrok url is ' + url);
   });
 });
-
-
-
